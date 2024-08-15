@@ -16,5 +16,6 @@ jobs:
     - name: Log in DockerHub
       uses: docker/login-action@v3.3.0
       with:
+      #this should be working
         username: ${{ secrets.DOCKERHUB_USER }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
