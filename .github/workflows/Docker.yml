@@ -16,9 +16,14 @@ jobs:
     - name: Log in DockerHub
       uses: docker/login-action@v3.3.0
       with:
-      #This will work now
         username: ${{ secrets.DOCKERHUB_USER }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+
+    - name: Download a Build Artifact
+      uses: actions/download-artifact@v4.1.8
+      with:
+        name: golang_CI
 
     - name: Build and push Docker images
       uses: docker/build-push-action@v6.7.0
