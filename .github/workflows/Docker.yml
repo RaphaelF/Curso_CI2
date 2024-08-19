@@ -19,3 +19,10 @@ jobs:
       #This will work now
         username: ${{ secrets.DOCKERHUB_USER }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+    - name: Build and push Docker images
+      with:
+        context: .
+        file: ./Dockerfile
+        push: true
+        tags: raphaelftsantos/go_ci:${{github.ref_name}}
