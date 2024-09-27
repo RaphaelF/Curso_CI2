@@ -1,13 +1,13 @@
 package routes
 
 import (
-	"github.com/gin-gonic/gin"
 	"github.com/alura-cursos/Curso_CI/controllers"
+	"github.com/gin-gonic/gin"
 )
 
 func HandleRequest() {
 	r := gin.Default()
-	r.LoadHTMLGlob("templates/*")
+	r.LoadHTMLGlob("/home/runner/work/Curso_CI2/Curso_CI2/templates/*")
 	r.Static("/assets", "./assets")
 	r.GET("/:nome", controllers.Saudacoes)
 	r.GET("/alunos", controllers.TodosAlunos)
