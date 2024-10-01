@@ -31,4 +31,4 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: raphaelftsantos/go_ci:${{github.ref_name}}
+        tags: raphaelftsantos/go_ci:${{github.run_number}}
