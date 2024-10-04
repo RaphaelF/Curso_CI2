@@ -42,3 +42,4 @@ jobs:
         service: servico-api-go
         cluster: api-go
         wait-for-service-stability: true
+        # minor update see if it's working
