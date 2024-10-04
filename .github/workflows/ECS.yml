@@ -45,8 +45,16 @@ jobs:
         service: servico-api-go
         cluster: api-go
         wait-for-service-stability: true
-        # minor update see if it's working
 
     - name: AWS Request
       continue-on-error: true
-      run: sleep 30s ; wget ${{ secrets.LOAD_BALANCER_HOST }}:8000/index
+      run: echo "REQUEST=0" >> $GITHUB_ENV ; sleep 30s ; wget ${{ secrets.LOAD_BALANCER_HOST }}:8000/index || echo "REQUEST=1" >> $GITHUB_ENV 
+
+    - name: Deploy Amazon ECS backup task definition
+      if: ${{ env.REQUEST != 0 }}
+      uses: aws-actions/amazon-ecs-deploy-task-definition@v2
+      with:
+        task-definition: task-definition.json.old
+        service: servico-api-go
+        cluster: api-go
+        wait-for-service-stability: true
