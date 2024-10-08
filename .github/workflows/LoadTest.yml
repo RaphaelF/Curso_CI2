@@ -57,5 +57,7 @@ jobs:
     - name: Run Load test
       run: sleep 30s ; locust -f locustfile.py --headless -u 5 -r 5 --run-time 30 -H http://${{ steps.terraformURL.outputs.stdout }}
 
+    - run: terraform -chdir=Infra_CI/env/Homolog destroy -auto-approve 
+
           
           
