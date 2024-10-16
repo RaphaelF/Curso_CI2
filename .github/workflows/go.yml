@@ -67,8 +67,13 @@ jobs:
  #   uses: ./.github/workflows/ECS.yml
  #   secrets: inherit
 
-  Run-Load-Test:
+ # Run-Load-Test:
+ #   needs: docker
+ #   if: ${{ github.ref_name == 'Homolog' }}
+ #   uses: ./.github/workflows/LoadTest.yml
+ #   secrets: inherit
+
+  Deploy_EKS:
     needs: docker
-    if: ${{ github.ref_name == 'Homolog' }}
-    uses: ./.github/workflows/LoadTest.yml
+    uses: ./.github/workflows/EKS.yml
     secrets: inherit
