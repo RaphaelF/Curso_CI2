@@ -27,3 +27,5 @@ jobs:
     - run: terraform -chdir=Infra_CI/env/Homolog destroy -auto-approve 
 
     - run: terraform -chdir=Infra_CI/env/Homolog apply -auto-approve 
+
+#maybe now
